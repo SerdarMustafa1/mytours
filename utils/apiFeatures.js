@@ -9,13 +9,9 @@ class APIFeatures {
     const excludedFields = ['page', 'sort', 'limit', 'fields'];
     excludedFields.forEach((el) => delete queryObj[el]);
 
-    // 1b Advanced filtering
-
+    // 1B) Advanced filtering
     let queryStr = JSON.stringify(queryObj);
-    queryStr = queryStr.replace(
-      /\b(gte|gt|lte|lt)\b/g,
-      (match) => `$ ${match}`
-    );
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
     this.query = this.query.find(JSON.parse(queryStr));
 
@@ -29,6 +25,7 @@ class APIFeatures {
     } else {
       this.query = this.query.sort('-createdAt');
     }
+
     return this;
   }
 
