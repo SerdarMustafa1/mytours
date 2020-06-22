@@ -252,6 +252,7 @@
 
         const bounds = new mapboxgl.LngLatBounds();
 
+        // deepcode ignore UseArrowFunction: <please specify a reason of ignoring this>
         geojson.features.forEach(function(marker) {
           var el = document.createElement('div');
           el.className = 'marker';
